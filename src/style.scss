@@ -1,0 +1,56 @@
+// Ki-DS Föräldrapakten – grunddesign. Ändra variablerna för att anpassa utseendet.
+$color-primary: #176b68;
+$color-primary-hover: #105451;
+$color-accent: #d8ef78;
+$color-page: #f4f7f5;
+$color-surface: #ffffff;
+$color-text: #1d2928;
+$color-muted: #667573;
+$color-border: #dce5e2;
+$color-focus: #2367d1;
+$color-danger: #a62c2c;
+$radius-sm: .5rem;
+$radius-md: .85rem;
+$radius-lg: 1.15rem;
+$shadow-card: 0 .35rem 1.2rem rgba(20, 52, 47, .07);
+$content-width: 72rem;
+
+:root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: $color-text; background: $color-page; font-synthesis: none; text-rendering: optimizeLegibility; }
+* { box-sizing: border-box; }
+html { min-width: 320px; scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: $color-page; color: $color-text; font-size: 1rem; line-height: 1.5; }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+a { color: $color-primary; text-underline-offset: .18em; text-decoration-thickness: .08em; &:hover { color: $color-primary-hover; } &:focus-visible { outline: 3px solid $color-focus; outline-offset: 3px; border-radius: .2rem; } }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid $color-focus; outline-offset: 2px; }
+#root { min-height: 100vh; }
+.app { width: min(100% - 2rem, $content-width); margin-inline: auto; padding-block: clamp(1.25rem, 4vw, 3.5rem); }
+.app-header { margin-bottom: 1.5rem; .eyebrow { margin: 0 0 .45rem; color: $color-primary; font-size: .8rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; } h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.65rem); line-height: 1.12; letter-spacing: -.035em; } p:not(.eyebrow) { max-width: 46rem; margin: .75rem 0 0; color: $color-muted; font-size: 1.05rem; } }
+.search-panel { padding: clamp(1rem, 3vw, 1.5rem); background: $color-surface; border: 1px solid $color-border; border-radius: $radius-lg; box-shadow: $shadow-card; }
+.search-label, .field-label { display: block; margin-bottom: .5rem; font-weight: 750; }
+.search-row { display: flex; gap: .65rem; align-items: stretch; input { flex: 1; min-width: 0; min-height: 3.1rem; padding: .75rem .95rem; color: $color-text; background: $color-surface; border: 1px solid #aebfba; border-radius: $radius-md; &::placeholder { color: #788784; } } }
+.search-hint { margin: .65rem 0 0; color: $color-muted; font-size: .9rem; }
+.button-primary, .button-secondary { display: inline-flex; min-height: 2.8rem; align-items: center; justify-content: center; gap: .45rem; padding: .65rem .95rem; border-radius: $radius-md; font-weight: 750; text-decoration: none; }
+.button-primary { color: #fff; background: $color-primary; border: 1px solid $color-primary; &:hover { color: #fff; background: $color-primary-hover; } }
+.button-secondary { color: $color-text; background: #fff; border: 1px solid $color-border; &:hover { color: $color-primary-hover; border-color: $color-primary; } }
+.clear-button { flex: 0 0 auto; }
+.results-section, .selected-school, .municipality-section, .status-message { margin-top: 1.25rem; }
+.section-heading { margin: 0 0 .75rem; font-size: 1.2rem; line-height: 1.3; }
+.results-list, .school-list { display: grid; gap: .65rem; }
+.result-item, .school-card { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem; background: $color-surface; border: 1px solid $color-border; border-radius: $radius-md; }
+.result-item { width: 100%; color: inherit; text-align: left; &:hover { border-color: $color-primary; box-shadow: $shadow-card; } .result-title { display: block; font-weight: 750; } .result-meta { display: block; margin-top: .2rem; color: $color-muted; font-size: .92rem; } }
+.result-type { flex: 0 0 auto; padding: .25rem .55rem; color: $color-primary-hover; background: #e5f2ef; border-radius: 999px; font-size: .78rem; font-weight: 750; }
+.selected-school { padding: clamp(1rem, 3vw, 1.5rem); background: $color-surface; border: 2px solid $color-primary; border-radius: $radius-lg; box-shadow: $shadow-card; > h2 { margin: 0; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.2; } .municipality-name { margin: .45rem 0 0; color: $color-muted; } }
+.school-card { align-items: flex-start; .school-card-content { width: 100%; } h3 { margin: 0; font-size: 1.08rem; } .municipality { margin: .2rem 0 0; color: $color-muted; font-size: .92rem; } }
+.school-stats { display: flex; flex-wrap: wrap; gap: .7rem; margin: 1rem 0 0; }
+.stat { min-width: 8rem; padding: .7rem .85rem; background: #f2f7f5; border: 1px solid $color-border; border-radius: $radius-md; dt { color: $color-muted; font-size: .82rem; } dd { margin: .15rem 0 0; font-size: 1.25rem; font-weight: 800; } }
+.school-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin-top: 1rem; }
+.whatsapp-link { display: inline-flex; min-height: 2.7rem; align-items: center; padding: .6rem .9rem; color: #164b32; background: #e8f6ec; border: 1px solid #b9dfc5; border-radius: $radius-md; font-weight: 750; text-decoration: none; &:hover { color: #103d28; background: #d8efdf; } }
+.text-link { font-weight: 700; }
+.missing-data { margin: .7rem 0 0; color: $color-muted; font-size: .9rem; }
+.empty-state, .error-state, .loading-state, .status-message { padding: 1rem; color: $color-muted; background: $color-surface; border: 1px dashed #b8c7c2; border-radius: $radius-md; }
+.error-state { color: $color-danger; background: #fff7f7; border-color: #e8b9b9; }
+.breadcrumbs { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; color: $color-muted; font-size: .9rem; a { color: inherit; } }
+@media (max-width: 38rem) { .app { width: min(100% - 1.1rem, $content-width); padding-block: 1rem 2rem; } .search-row { flex-direction: column; .clear-button { width: 100%; } } .result-item, .school-card { align-items: flex-start; } .school-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } .stat { min-width: 0; } .school-actions { flex-direction: column; align-items: stretch; > * { width: 100%; } } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
